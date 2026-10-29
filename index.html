@@ -1,0 +1,577 @@
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>João Lucas | Portfólio</title>
+
+    <meta name="description" content="Portfólio de João Lucas, estudante de Ciência da Computação e Jovem Aprendiz na Sabesp.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800;900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #111111;
+            --grey: #6B6B6B;
+            --line: #D9D9D6;
+            --paper: #F5F5F2;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--black);
+            font: 400 1.05rem/1.7 "Work Sans", sans-serif;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:focus-visible {
+            outline: 3px solid #777;
+            outline-offset: 4px;
+        }
+
+        .wrap {
+            max-width: 1056px;
+            margin: auto;
+            padding: 0 24px;
+        }
+
+        /* CABEÇALHO */
+
+        .hero {
+            background: var(--black);
+            color: var(--white);
+            padding-top: 20px;
+        }
+
+        .bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            color: #BDBDBD;
+            font-size: 15px;
+        }
+
+        .bar nav {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .bar a {
+            text-decoration: none;
+        }
+
+        .bar a:hover {
+            color: white;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 56px 0 20px;
+            padding: 7px 14px;
+            border: 1px solid #444;
+            font-size: 14px;
+        }
+
+        .status i {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #3DDC84;
+        }
+
+        .hero h1 {
+            font: 900 clamp(56px, 13vw, 150px)/0.95 "Archivo", sans-serif;
+            letter-spacing: -0.05em;
+            margin: 0;
+        }
+
+        .role {
+            max-width: 600px;
+            margin-top: 28px;
+            color: #E4E4E4;
+            font-size: clamp(19px, 3vw, 27px);
+            line-height: 1.4;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 28px 0 52px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border: 2px solid white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .btn.solid {
+            background: white;
+            color: var(--black);
+        }
+
+        .btn.solid:hover {
+            background: #DCDCDC;
+        }
+
+        .btn.outline:hover {
+            background: white;
+            color: var(--black);
+        }
+
+        /* INFORMAÇÕES RÁPIDAS */
+
+        .quick {
+            background: white;
+            border-bottom: 2px solid var(--black);
+        }
+
+        .quick dl {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin: 0;
+        }
+
+        .quick dl > div {
+            padding: 24px 20px;
+            border-left: 1px solid var(--line);
+        }
+
+        .quick dl > div:first-child {
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .quick dt {
+            color: var(--grey);
+            font-size: 14px;
+        }
+
+        .quick dd {
+            margin: 4px 0 0;
+            font: 800 17px/1.4 "Archivo", sans-serif;
+        }
+
+        /* SEÇÕES */
+
+        .row {
+            display: grid;
+            grid-template-columns: 190px 1fr;
+            gap: 32px;
+            padding: 48px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .row h2 {
+            margin: 0;
+            font: 800 25px "Archivo", sans-serif;
+        }
+
+        .row p {
+            margin: 0 0 16px;
+            max-width: 650px;
+        }
+
+        .item h3 {
+            margin: 0;
+            font: 800 20px "Archivo", sans-serif;
+        }
+
+        .meta {
+            color: var(--grey);
+            margin: 5px 0 12px !important;
+            font-size: 15px;
+        }
+
+        .item ul {
+            padding-left: 22px;
+            margin-bottom: 0;
+        }
+
+        .item li {
+            margin-bottom: 8px;
+        }
+
+        /* HABILIDADES */
+
+        .skills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin: 0;
+        }
+
+        .skills dt {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .skills dd {
+            margin: 0;
+            color: var(--grey);
+        }
+
+        /* CONTATO */
+
+        .contact {
+            background: var(--black);
+            color: white;
+        }
+
+        .contact .row {
+            border: none;
+        }
+
+        .contact .meta {
+            color: #BDBDBD;
+        }
+
+        .email {
+            display: inline-block;
+            font: 800 clamp(22px, 4vw, 42px)/1.2 "Archivo", sans-serif;
+            overflow-wrap: anywhere;
+            text-decoration: underline;
+        }
+
+        .contact .buttons {
+            padding: 24px 0 0;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            padding: 22px 0;
+            color: var(--grey);
+            font-size: 14px;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 768px) {
+            .quick dl {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .quick dl > div:nth-child(3) {
+                border-left: none;
+                padding-left: 0;
+            }
+
+            .quick dl > div {
+                border-top: 1px solid var(--line);
+            }
+
+            .quick dl > div:nth-child(-n+2) {
+                border-top: none;
+            }
+
+            .row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 36px 0;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wrap {
+                padding: 0 18px;
+            }
+
+            .bar nav {
+                gap: 14px;
+            }
+
+            .status {
+                margin-top: 40px;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .quick dd {
+                font-size: 15px;
+            }
+
+            .btn {
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="hero">
+        <div class="wrap">
+
+            <div class="bar">
+                <span>PORTFÓLIO</span>
+
+                <nav aria-label="Navegação principal">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#experiencia">Experiência</a>
+                    <a href="#formacao">Formação</a>
+                    <a href="#contato">Contato</a>
+                </nav>
+            </div>
+
+            <div class="status">
+                <i></i>
+                Disponível para estágio em tecnologia
+            </div>
+
+            <h1>João Lucas</h1>
+
+            <p class="role">
+                Estudante de Ciência da Computação, com experiência profissional na Sabesp.
+            </p>
+
+            <div class="buttons">
+                <a class="btn solid" href="meucurriculo.pdf.pdf" download="curriculo.pdf">
+                    Baixar currículo
+                </a>
+
+                <a
+                    class="btn outline"
+                    href="https://www.linkedin.com/in/jo%C3%A3o-lucas-concei%C3%A7%C3%A3o-pereira/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+
+                <a class="btn outline" href="mailto:j.l2007pereira@gmail.com">
+                    Enviar e-mail
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- INFORMAÇÕES RÁPIDAS -->
+    <section class="quick" aria-label="Resumo profissional">
+        <div class="wrap">
+            <dl>
+                <div>
+                    <dt>Formação</dt>
+                    <dd>Ciência da Computação</dd>
+                </div>
+
+                <div>
+                    <dt>Atualmente</dt>
+                    <dd>Jovem Aprendiz na Sabesp</dd>
+                </div>
+
+                <div>
+                    <dt>Procuro</dt>
+                    <dd>Estágio em tecnologia</dd>
+                </div>
+
+                <div>
+                    <dt>Local</dt>
+                    <dd>São Paulo, SP</dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+
+    <main class="wrap">
+
+        <!-- SOBRE -->
+        <section class="row" id="sobre">
+            <h2>Sobre mim</h2>
+
+            <div>
+                <p>
+                    Sou estudante de Ciência da Computação e atuo como Jovem
+                    Aprendiz na Sabesp. Tenho experiência com rotinas
+                    administrativas, atendimento e utilização de sistemas
+                    corporativos.
+                </p>
+
+                <p>
+                    Minha experiência profissional me ajudou a desenvolver
+                    organização, responsabilidade, comunicação e capacidade
+                    de lidar com diferentes demandas. Busco uma oportunidade
+                    de estágio em tecnologia para continuar aprendendo e
+                    contribuir com a equipe.
+                </p>
+            </div>
+        </section>
+
+        <!-- HABILIDADES -->
+        <section class="row" id="habilidades">
+            <h2>Habilidades</h2>
+
+            <dl class="skills">
+                <div>
+                    <dt>Sistemas corporativos</dt>
+                    <dd>GeoCall, SAP e acompanhamento de solicitações.</dd>
+                </div>
+
+                <div>
+                    <dt>Pacote Office</dt>
+                    <dd>Microsoft Excel, Word, planilhas e relatórios.</dd>
+                </div>
+
+                <div>
+                    <dt>Organização</dt>
+                    <dd>Gestão de documentos, arquivos e informações.</dd>
+                </div>
+
+                <div>
+                    <dt>Competências pessoais</dt>
+                    <dd>Comunicação, proatividade, organização e trabalho em equipe.</dd>
+                </div>
+
+                <div>
+                    <dt>Tecnologia</dt>
+                    <dd>Estudos em Ciência da Computação e programação em Python.</dd>
+                </div>
+
+                <div>
+                    <dt>Outros cursos</dt>
+                    <dd>Redes de Computadores e Assistente Administrativo pelo SENAI.</dd>
+                </div>
+            </dl>
+        </section>
+
+        <!-- EXPERIÊNCIA -->
+        <section class="row" id="experiencia">
+            <h2>Experiência</h2>
+
+            <div class="item">
+                <h3>Jovem Aprendiz — Assistente Administrativo</h3>
+
+                <p class="meta">Sabesp</p>
+
+                <ul>
+                    <li>Organização de informações e cumprimento de prazos.</li>
+                    <li>Organização e controle de documentos e arquivos.</li>
+                    <li>Controle e acompanhamento de protocolos e solicitações.</li>
+                    <li>Utilização de sistemas corporativos, incluindo GeoCall e SAP.</li>
+                    <li>Uso de ferramentas do Pacote Office, especialmente Excel e Word.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FORMAÇÃO -->
+        <section class="row" id="formacao">
+            <h2>Formação</h2>
+
+            <div class="item">
+                <h3>Bacharelado em Ciência da Computação</h3>
+
+                <p class="meta">
+                    UNICID — graduação em andamento
+                </p>
+
+                <p>
+                    Previsão de conclusão: dezembro de 2029.
+                </p>
+
+                <h3 style="margin-top: 24px;">Cursos complementares</h3>
+
+                <ul>
+                    <li>Redes de Computadores.</li>
+                    <li>Programação em Python.</li>
+                    <li>Assistente Administrativo — SENAI.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- CONTATO -->
+    <section class="contact" id="contato">
+        <div class="wrap">
+
+            <div class="row">
+                <h2>Contato</h2>
+
+                <div>
+                    <p class="meta">
+                        Tem uma oportunidade de estágio? Vamos conversar!
+                    </p>
+
+                    <a class="email" href="mailto:j.l2007pereira@gmail.com">
+                        j.l2007pereira@gmail.com
+                    </a>
+
+                    <div class="buttons">
+                        <a class="btn solid" href="meucurriculo.pdf.pdf" download="curriculo.pdf">
+                            Baixar currículo
+                        </a>
+
+                        <a
+                            class="btn outline"
+                            href="https://www.linkedin.com/in/jo%C3%A3o-lucas-concei%C3%A7%C3%A3o-pereira/"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            LinkedIn
+                        </a>
+
+                        <a
+                            class="btn outline"
+                            href="https://github.com/lucasjoao01/Joao-Lucas"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="wrap">
+            João Lucas da Conceição Pereira · São Paulo, SP
+        </div>
+    </footer>
+
+</body>
+</html>
